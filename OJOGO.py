@@ -1,0 +1,3 @@
+jogando=True
+while jogando:
+    
