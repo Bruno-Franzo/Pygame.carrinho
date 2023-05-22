@@ -14,7 +14,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('jogo do digao e brunao')
 
 #inicia assets
-background= pygame.image.load('assets/Rua.png')
+background= pygame.image.load('assets/img/Rua.png')
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 
