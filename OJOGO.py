@@ -16,6 +16,8 @@ pygame.display.set_caption('Highway Rush')
 #inicia assets
 background= pygame.image.load('assets/img/Rua.png')
 background= pygame.transform.scale(background,(WIDTH,HEIGHT))
+background2= pygame.image.load('assets/img/Rua.png')
+background2= pygame.transform.scale(background2,(WIDTH,HEIGHT))
 jogador_img= pygame.image.load('assets/img/carro.frente.png')
 jogador_direita_img= pygame.image.load('assets/img/car.Direita.png')
 jogador_esquerda_img= pygame.image.load('assets/img/car.Esquerda.png')
@@ -74,6 +76,25 @@ class Inimigo(pygame.sprite.Sprite):
             self.rect.y = random.randint(-100, -50)
             self.speedy = random.randint(8, 10)
 
+class cenario(pygame.sprite.Sprite):
+    def __init__(self,img):
+        #classe mae
+        pygame.sprite.Sprite.__init__(self)
+
+        self.image= img
+        self.rect= self.image.get_rect()
+        self.rect.x = 0
+        self.rect.y = -HEIGHT
+        self.speedy= 15
+
+    def update(self):
+        #atualizando cenario
+        self.rect.y= self.speedy
+
+        #ao chegar no final, reseta
+        if self.rect.top > HEIGHT:
+            
+
 
 
 # Variavel para o ajuste de framerate
@@ -96,7 +117,8 @@ for i in range(4):
     all_ini.add(carrinho)
 
     
-
+#criando background
+background = cenario(background)
 
 
 
