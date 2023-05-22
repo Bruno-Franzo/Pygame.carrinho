@@ -55,16 +55,25 @@ class Jogador(pygame.sprite.Sprite):
 
 #classe dos carros inimigos
 class Inimigo(pygame.sprite.Sprite):
-    def __init__(self,img):
+    def __init__(self,img,img2):
         #classe mae(sprite)
         pygame.sprite.Sprite.__init__(self)
-
-        self.image = img
-        self.rect = self.image.get_rect()
+        self.afavor= img
+        self.contra = img2
         self.rect.x = random.choice(pixel_das_vias)
-        self.rect.y = random.randint(-100, -50)
-        self.speedx = 0
-        self.speedy = random.randint(8, 10)
+        if self.rect.x == 180 or self.rect.x == 275:
+            self.image = self.contra
+            self.rect = self.image.get_rect()
+            self.rect.y = random.randint(-100, -50)
+            self.speedx = 0
+            self.speedy = random.randint(8, 10)
+        else:
+            self.image= self.afavor
+            self.rect = self.image.get_rect()
+            self.rect.y = random.randint(-100, -50)
+            self.speedx = 0
+            self.speedy = random.randint(8, 10)
+
 
     def update(self):
         #atulizando inimigo
@@ -74,8 +83,9 @@ class Inimigo(pygame.sprite.Sprite):
         if self.rect.top > HEIGHT:
             self.image = random.choice([ini_vermelho,ini_azul,ini_verde])
             self.rect.x = random.choice(pixel_das_vias)
-            self.rect.y = random.randint(-100, -50)
-            self.speedy = random.randint(8, 10)
+            if self.rect.x == 180 or self.rect.x == 275:
+                self.rect.y = random.randint(-100, -50)
+                self.speedy = random.randint(8, 10)
 
 class cenario(pygame.sprite.Sprite):
     def __init__(self, img, altura):
