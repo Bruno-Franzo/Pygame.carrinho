@@ -23,9 +23,9 @@ pixel_das_vias= [180, 275, 375, 470] #definido atraves de testes
 ini_azul= pygame.image.load('assets/img/inimigo.azul.png')
 ini_azul= pygame.transform.scale(ini_azul,(50,100))
 ini_vermelho= pygame.image.load('assets/img/inimigo.vermelho.png')
-ini_vermelho= pygame.transform.scale(ini_azul,(50,100))
+ini_vermelho= pygame.transform.scale(ini_vermelho,(50,100))
 ini_verde= pygame.image.load('assets/img/inimigo.verde.png')
-ini_verde= pygame.transform.scale(ini_azul,(50,100))
+ini_verde= pygame.transform.scale(ini_verde,(50,100))
 
 
 #iniciando estrutura de dados
@@ -91,7 +91,7 @@ all_sprites.add(player)
 
 #criando inimigos
 for i in range(4):
-    cor = random.choice([ini_verde,ini_vermelho])
+    cor = random.choice([ini_verde,ini_azul,ini_vermelho])
     carrinho = Inimigo(cor)
     all_sprites.add(carrinho)
     all_ini.add(carrinho)
