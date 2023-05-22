@@ -47,6 +47,10 @@ class Jogador(pygame.sprite.Sprite):
             self.rect.left = 0
 
 
+# Variavel para o ajuste de framerate
+clock = pygame.time.Clock()
+Fps= 30
+
 
 #criando um grupo de sprites
 all_sprites = pygame.sprite.Group()
@@ -65,6 +69,7 @@ all_sprites.add(player)
 #loop principal do jogo
 game = True
 while game:
+    clock.tick(Fps)
     #    olha os eventos
     for event in pygame.event.get():
         #olha as consequencias
