@@ -63,7 +63,7 @@ class Inimigo(pygame.sprite.Sprite):
         self.rect.x = random.choice(pixel_das_vias)
         self.rect.y = random.randint(-100, -50)
         self.speedx = 0
-        self.speedy = random.randint(2, 9)
+        self.speedy = random.randint(8, 10)
 
     def update(self):
         #atulizando inimigo
@@ -73,7 +73,7 @@ class Inimigo(pygame.sprite.Sprite):
         if self.rect.top > HEIGHT:
             self.rect.x = random.choice(pixel_das_vias)
             self.rect.y = random.randint(-100, -50)
-            self.speedy = random.randint(2, 9)
+            self.speedy = random.randint(8, 10)
 
 
 
