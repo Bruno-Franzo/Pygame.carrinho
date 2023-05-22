@@ -78,15 +78,15 @@ class Inimigo(pygame.sprite.Sprite):
             self.speedy = random.randint(8, 10)
 
 class cenario(pygame.sprite.Sprite):
-    def __init__(self,img):
+    def __init__(self, img, altura):
         #classe mae
         pygame.sprite.Sprite.__init__(self)
 
         self.image= img
         self.rect= self.image.get_rect()
         self.rect.x = 0
-        self.rect.y = -HEIGHT
-        self.speedy= 15
+        self.rect.y = altura
+        self.speedy= 10
 
     def update(self):
         #atualizando cenario
@@ -101,16 +101,17 @@ class cenario(pygame.sprite.Sprite):
 
 # Variavel para o ajuste de framerate
 clock = pygame.time.Clock()
-Fps= 30
+Fps= 60
 
 #criando um grupo de sprites
 all_sprites = pygame.sprite.Group()
 all_ini = pygame.sprite.Group()
 
 #criando background
-background = cenario(background)
+background = cenario(background,0)
+background2 = cenario(background2,-HEIGHT)
 all_sprites.add(background)
-
+all_sprites.add(background2)
 # Criando o jogador
 player= Jogador(jogador_img)
 all_sprites.add(player)
