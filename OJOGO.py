@@ -90,10 +90,14 @@ class cenario(pygame.sprite.Sprite):
 
     def update(self):
         #atualizando cenario
-        self.rect.y= self.speedy
+        self.rect.y += self.speedy
 
         #ao chegar no final, reseta
         if self.rect.top > HEIGHT:
+            self.rect.bottom = 0
+
+
+
             
 
 
@@ -106,6 +110,10 @@ Fps= 30
 all_sprites = pygame.sprite.Group()
 all_ini = pygame.sprite.Group()
 
+#criando background
+background = cenario(background)
+all_sprites.add(background)
+
 # Criando o jogador
 player= Jogador(jogador_img)
 all_sprites.add(player)
@@ -116,12 +124,7 @@ for i in range(4):
     carrinho = Inimigo(cor)
     all_sprites.add(carrinho)
     all_ini.add(carrinho)
-
     
-#criando background
-background = cenario(background)
-
-
 
 #loop principal do jogo
 game = True
@@ -153,7 +156,7 @@ while game:
 
     # gera as saidas
     window.fill((255, 255, 255))  # Preenche com a cor branca
-    window.blit(background, (0, 0))
+    #window.blit(background, (0, 0))
     #desenhando sprites
     all_sprites.draw(window)    
 
