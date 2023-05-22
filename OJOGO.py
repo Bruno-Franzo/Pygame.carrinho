@@ -15,12 +15,17 @@ pygame.display.set_caption('jogo do digao e brunao')
 
 #inicia assets
 background= pygame.image.load('assets/img/Rua.png')
-background = pygame.transform.scale(background,(WIDTH,HEIGHT))
+background= pygame.transform.scale(background,(WIDTH,HEIGHT))
 jogador_img= pygame.image.load('assets/img/carro.frente.png')
 jogador_direita_img= pygame.image.load('assets/img/car.Direita.png')
 jogador_esquerda_img= pygame.image.load('assets/img/car.Esquerda.png')
-
-
+pixel_das_vias= [180, 275, 375, 470] #definido atraves de testes
+ini_azul= pygame.image.load('assets/img/inimigo.azul.png')
+ini_azul= pygame.transform.scale(ini_azul,(50,100))
+ini_vermelho= pygame.image.load('assets/img/inimigo.vermelho.png')
+ini_vermelho= pygame.transform.scale(ini_azul,(50,100))
+ini_verde= pygame.image.load('assets/img/inimigo.verde.png')
+ini_verde= pygame.transform.scale(ini_azul,(50,100))
 
 
 #iniciando estrutura de dados
@@ -46,19 +51,49 @@ class Jogador(pygame.sprite.Sprite):
         if self.rect.left < 160:
             self.rect.left = 160
 
+#classe dos carros inimigos
+
+class Inimigo(pygame.sprite.Sprite):
+    def __init__(self,img):
+        #classe mae(sprite)
+        pygame.sprite.Sprite.__init__(self)
+
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.choice(pixel_das_vias)
+        self.rect.y = random.randint(-100, -50)
+        self.speedx = 0
+        self.speedy = random.randint(2, 9)
+
+    def update(self):
+        #atulizando inimigo
+        self.rect.y += self.speedy
+
+        #caso chegue no final, volta e sorteia nova posicao
+        if self.rect.top > HEIGHT:
+            self.rect.x = random.choice(pixel_das_vias)
+            self.rect.y = random.randint(-100, -50)
+            self.speedy = random.randint(2, 9)
+
+
 
 # Variavel para o ajuste de framerate
 clock = pygame.time.Clock()
 Fps= 30
 
-
 #criando um grupo de sprites
 all_sprites = pygame.sprite.Group()
-
+all_ini = pygame.sprite.Group()
 
 # Criando o jogador
 player= Jogador(jogador_img)
 all_sprites.add(player)
+
+#criando inimigos
+for i in range(4):
+    carrinho = Inimigo(ini_azul)
+    all_sprites.add(carrinho)
+    all_ini.add(carrinho)
 
     
 
