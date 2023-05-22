@@ -52,7 +52,6 @@ class Jogador(pygame.sprite.Sprite):
             self.rect.left = 160
 
 #classe dos carros inimigos
-
 class Inimigo(pygame.sprite.Sprite):
     def __init__(self,img):
         #classe mae(sprite)
@@ -97,7 +96,6 @@ for i in range(4):
     all_ini.add(carrinho)
 
     
-
 
 
 
