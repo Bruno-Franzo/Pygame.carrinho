@@ -93,7 +93,7 @@ class cenario(pygame.sprite.Sprite):
         self.rect.y += self.speedy
 
         #ao chegar no final, reseta
-        if self.rect.top > HEIGHT:
+        if self.rect.top >= HEIGHT:
             self.rect.bottom = 0
             
 
