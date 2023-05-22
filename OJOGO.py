@@ -8,10 +8,15 @@ pygame.init()
 pygame.mixer.init()
 
 #gerando tela principal
-WIDTH = 480
-HEIGHT = 600
-window = pygame.display.set_mode((600, 300))
+WIDTH = 600
+HEIGHT = 700
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('jogo do digao e brunao')
+
+#inicia assets
+background= pygame.image.load('assets/Rua.png')
+background = pygame.transform.scale(background,(WIDTH,HEIGHT))
+
 
 
 #iniciando estrutura de dados
@@ -28,7 +33,7 @@ while game:
 
     # gera as saidas
     window.fill((255, 255, 255))  # Preenche com a cor branca
-
+    window.blit(background, (0, 0))
 
 
     #atualiza o estado do jogo
