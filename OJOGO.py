@@ -37,7 +37,7 @@ class Jogador(pygame.sprite.Sprite):
 
         self.image= img
         self.rect= self.image.get_rect()
-        self.rect.centerx = WIDTH / 3.5
+        self.rect.centerx =( WIDTH / 3.5)+100*2
         self.rect.bottom= HEIGHT - 10
         self.speedx = 0
 
