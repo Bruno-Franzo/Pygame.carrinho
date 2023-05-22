@@ -94,6 +94,7 @@ class cenario(pygame.sprite.Sprite):
 
         #ao chegar no final, reseta
         if self.rect.top > HEIGHT:
+            self.rect.bottom = 0
             
 
 
