@@ -91,7 +91,8 @@ all_sprites.add(player)
 
 #criando inimigos
 for i in range(4):
-    carrinho = Inimigo(ini_azul)
+    cor = random.choice([ini_verde,ini_vermelho])
+    carrinho = Inimigo(cor)
     all_sprites.add(carrinho)
     all_ini.add(carrinho)
 
