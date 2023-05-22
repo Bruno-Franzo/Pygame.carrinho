@@ -11,7 +11,7 @@ pygame.mixer.init()
 WIDTH = 700
 HEIGHT = 780
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('jogo do digao e brunao')
+pygame.display.set_caption('Highway Rush')
 
 #inicia assets
 background= pygame.image.load('assets/img/Rua.png')
