@@ -8,8 +8,8 @@ pygame.init()
 pygame.mixer.init()
 
 #gerando tela principal
-WIDTH = 600
-HEIGHT = 700
+WIDTH = 700
+HEIGHT = 780
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('jogo do digao e brunao')
 
@@ -68,15 +68,32 @@ while game:
     #    olha os eventos
     for event in pygame.event.get():
         #olha as consequencias
-         if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             game = False
-        
+        #verifica se apertou teclas
+        if event.type == pygame.KEYDOWN:
+            # Altera a velocidade
+            if event.key == pygame.K_LEFT:
+                player.speedx -= 8
+            if event.key == pygame.K_RIGHT:
+                player.speedx += 8 
+        #verifica se soltou teclas
+        if event.type == pygame.KEYUP:
+            #altera a velocidade
+            if event.key == pygame.K_LEFT:
+                player.speedx += 8
+            if event.key == pygame.K_RIGHT:
+                player.speedx -= 8
+
+    #atualizando estado do jogo#
+    #atualiza todos os sprites
+    all_sprites.update()
 
     # gera as saidas
     window.fill((255, 255, 255))  # Preenche com a cor branca
     window.blit(background, (0, 0))
     #desenhando sprites
-    all_sprites.draw(window)
+    all_sprites.draw(window)    
 
 
     #atualiza o estado do jogo
