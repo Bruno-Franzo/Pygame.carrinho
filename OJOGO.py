@@ -70,6 +70,7 @@ class Inimigo(pygame.sprite.Sprite):
 
         #caso chegue no final, volta e sorteia nova posicao
         if self.rect.top > HEIGHT:
+            self.image = random.choice([ini_vermelho,ini_azul,ini_verde])
             self.rect.x = random.choice(pixel_das_vias)
             self.rect.y = random.randint(-100, -50)
             self.speedy = random.randint(8, 10)
