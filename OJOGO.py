@@ -15,13 +15,13 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Highway Rush')
 
 #inicia assets
-background= pygame.image.load('assets/img/Rua.png')
+background= pygame.image.load('assets/img/Rua.png').convert_alpha()
 background= pygame.transform.scale(background,(WIDTH,HEIGHT))
-background2= pygame.image.load('assets/img/Rua.png')
+background2= pygame.image.load('assets/img/Rua.png').convert_alpha()
 background2= pygame.transform.scale(background2,(WIDTH,HEIGHT))
-jogador_img= pygame.image.load('assets/img/carro.frente.png')
-jogador_direita_img= pygame.image.load('assets/img/car.Direita.png')
-jogador_esquerda_img= pygame.image.load('assets/img/car.Esquerda.png')
+jogador_img= pygame.image.load('assets/img/carro.frente.png').convert_alpha()
+jogador_direita_img= pygame.image.load('assets/img/car.Direita.png').convert_alpha()
+jogador_esquerda_img= pygame.image.load('assets/img/car.Esquerda.png').convert_alpha()
 pixel_das_vias= [180, 275, 375, 470] #definido atraves de testes
 ini_azul= pygame.image.load('assets/img/inimigo.azul.png')
 ini_azul= pygame.transform.scale(ini_azul,(50,100))
@@ -218,9 +218,6 @@ while game:
 
 
         
-
-
-
 
 #Finalizacao
 pygame.quit()
