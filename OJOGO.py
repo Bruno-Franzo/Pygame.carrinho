@@ -66,19 +66,21 @@ class Inimigo(pygame.sprite.Sprite):
     def __init__(self,img,img2):
         #classe mae(sprite)
         pygame.sprite.Sprite.__init__(self)
-        self.contra= img
+        self.contra = img
         self.afavor = img2
-        self.rect.x = random.choice(pixel_das_vias)
-        if self.rect.x == 180 or self.rect.x == 275:
+        inicio = random.choice(pixel_das_vias)
+        if inicio == 180 or inicio == 275:
             self.image = self.contra
             self.rect = self.image.get_rect()
             self.rect.y = random.randint(-100, -50)
+            self.rect.x = inicio
             self.speedx = 0
-            self.speedy = random.randint(10, 20)
+            self.speedy = random.randint(14, 20)
         else:
             self.image= self.afavor
             self.rect = self.image.get_rect()
             self.rect.y = random.randint(-100, -50)
+            self.rect.x = inicio
             self.speedx = 0
             self.speedy = random.randint(5, 9)
 
@@ -89,12 +91,17 @@ class Inimigo(pygame.sprite.Sprite):
 
         #caso chegue no final, volta e sorteia nova posicao
         if self.rect.top > HEIGHT:
-            self.image = random.choice([ini_vermelho,ini_azul,ini_verde])
-            self.rect.x = random.choice(pixel_das_vias)
-            if self.rect.x == 180 or self.rect.x == 275:
+            inicio = random.choice(pixel_das_vias)
+            if inicio == 180 or inicio == 275:
+                self.image= self.contra
+                self.rect= self.image.get_rect()
                 self.rect.y = random.randint(-100, -50)
-                self.speedy = random.randint(10, 20)
+                self.speedy = random.randint(14, 20)
+                self.rect.x= inicio
             else:
+                self.image= self.afavor
+                self.rect= self.image.get_rect()
+                self.rect.x= inicio
                 self.rect.y = random.randint(-100, -50)
                 self.speedx = 0
                 self.speedy = random.randint(5, 9) 
@@ -141,7 +148,7 @@ all_sprites.add(player)
 #criando inimigos
 for i in range(4):
     cor = random.choice([ini_azul,ini_verde,ini_vermelho])
-    cor2= random.choice([invrt_azul,invrt_verde,invrt_vermelho])
+    cor2 = random.choice([invrt_azul,invrt_verde,invrt_vermelho])
     carrinho = Inimigo(cor,cor2)
     all_sprites.add(carrinho)
     all_ini.add(carrinho)
