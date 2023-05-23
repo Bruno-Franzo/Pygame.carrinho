@@ -216,6 +216,18 @@ while game:
 
     #Verifica colisao entre inimigos
 
+#anotacoes pra proxima
+#fase deserto
+#fase inferno
+#Som ambiente
+#som de batida
+#Sons de drift
+#tela inicial
+#contador de pontos
+#carro caveira(talvez)
+
+
+
 
         
 
