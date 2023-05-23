@@ -2,6 +2,7 @@
 #Importações
 import pygame
 import random
+import time
 
 
 pygame.init()
@@ -34,18 +35,19 @@ invrt_vermelho= pygame.image.load('assets/img/invertido.vermelho.png')
 invrt_vermelho= pygame.transform.scale(invrt_vermelho,(50,100))
 invrt_verde= pygame.image.load('assets/img/invertido.verde.png')
 invrt_verde= pygame.transform.scale(invrt_verde,(50,100))
-azul= [ini_azul,invrt_azul]
-vermelho= [ini_vermelho,invrt_vermelho]
-verde= [ini_verde, invrt_verde]
+
 
 #iniciando estrutura de dados
 #Definindo classes
 class Jogador(pygame.sprite.Sprite):
-    def __init__(self, img):
+    def __init__(self, img, esq, dire):
         # Classe mae(sprite)
         pygame.sprite.Sprite.__init__(self)
-
+        self.direita= dire
+        self.esquerda = esq
+        self.original= img
         self.image= img
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect= self.image.get_rect()
         self.rect.centerx =( WIDTH / 3.5)+100*2
         self.rect.bottom= HEIGHT - 10
@@ -54,7 +56,13 @@ class Jogador(pygame.sprite.Sprite):
     def update(self):
         #atualiza posicao do jogador
         self.rect.x += self.speedx
-
+        if R == 1:
+            self.image= self.esquerda
+        if R == 2:
+            self.image = self.direita
+        if R == 3:
+            self.image= self.original
+        
         # Mantem dentro da tela
         if self.rect.right > WIDTH - 160:
             self.rect.right = WIDTH - 160
@@ -76,6 +84,7 @@ class Inimigo(pygame.sprite.Sprite):
             self.rect.x = inicio
             self.speedx = 0
             self.speedy = random.randint(14, 20)
+            self.mask = pygame.mask.from_surface(self.image)
         else:
             self.image= self.afavor
             self.rect = self.image.get_rect()
@@ -83,6 +92,7 @@ class Inimigo(pygame.sprite.Sprite):
             self.rect.x = inicio
             self.speedx = 0
             self.speedy = random.randint(5, 9)
+            self.mask = pygame.mask.from_surface(self.image)
 
 
     def update(self):
@@ -142,7 +152,7 @@ background2 = cenario(background2,-HEIGHT)
 all_sprites.add(background)
 all_sprites.add(background2)
 # Criando o jogador
-player= Jogador(jogador_img)
+player= Jogador(jogador_img,jogador_esquerda_img,jogador_direita_img)
 all_sprites.add(player)
 
 #criando inimigos
@@ -158,6 +168,7 @@ for i in range(4):
 game = True
 while game:
     clock.tick(Fps)
+    R=0
     #    olha os eventos
     for event in pygame.event.get():
         #olha as consequencias
@@ -167,11 +178,14 @@ while game:
         if event.type == pygame.KEYDOWN:
             # Altera a velocidade
             if event.key == pygame.K_LEFT:
+                R=1
                 player.speedx -= 8
             if event.key == pygame.K_RIGHT:
+                R=2
                 player.speedx += 8 
         #verifica se soltou teclas
         if event.type == pygame.KEYUP:
+            R = 3
             #altera a velocidade
             if event.key == pygame.K_LEFT:
                 player.speedx += 8
@@ -191,6 +205,22 @@ while game:
 
     #atualiza o estado do jogo
     pygame.display.update()
+
+    #Verifica colisao entre jogador e inimigo
+    hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
+    if len(hits) > 0 :
+        #toca o som
+        #som pra por depois
+        time.sleep(1)
+        game= False
+
+    #Verifica colisao entre inimigos
+
+
+        
+
+
+
 
 #Finalizacao
 pygame.quit()
