@@ -50,7 +50,7 @@ class Jogador(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.image)
         self.rect= self.image.get_rect()
         self.rect.centerx =( WIDTH / 3.5)+100*2
-        self.rect.bottom= HEIGHT - 10
+        self.rect.bottom= HEIGHT - 150
         self.speedx = 0
 
     def update(self):
