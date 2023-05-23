@@ -192,9 +192,13 @@ while game:
             if event.key == pygame.K_RIGHT:
                 player.speedx -= 8
             if event.key == pygame.K_UP:
-                background.speedy+=5
-                background2.speedy+=5
-                carrinho.speedy+=5
+                background.speedy+=2.5
+                background2.speedy+=2.5
+                carrinho.speedy+=2.5
+            if event.key == pygame.K_DOWN:
+                background.speedy-=2.5
+                background2.speedy-=2.5
+                carrinho.speedy-=2.5
     #atualizando estado do jogo#
     #atualiza todos os sprites
     all_sprites.update()
