@@ -29,11 +29,11 @@ ini_vermelho= pygame.transform.scale(ini_vermelho,(50,100))
 ini_verde= pygame.image.load('assets/img/inimigo.verde.png')
 ini_verde= pygame.transform.scale(ini_verde,(50,100))
 invrt_azul= pygame.image.load('assets/img/invertido.azul.png')
-invrt_azul= pygame.transform.scale(invrt_azul(50,100))
+invrt_azul= pygame.transform.scale(invrt_azul,(50,100))
 invrt_vermelho= pygame.image.load('assets/img/invertido.vermelho.png')
-invrt_vermelho= pygame.transform.scale(invrt_vermelho(50,100))
+invrt_vermelho= pygame.transform.scale(invrt_vermelho,(50,100))
 invrt_verde= pygame.image.load('assets/img/invertido.verde.png')
-invrt_verde= pygame.transform.scale(invrt_verde(50,100))
+invrt_verde= pygame.transform.scale(invrt_verde,(50,100))
 azul= [ini_azul,invrt_azul]
 vermelho= [ini_vermelho,invrt_vermelho]
 verde= [ini_verde, invrt_verde]
@@ -66,21 +66,21 @@ class Inimigo(pygame.sprite.Sprite):
     def __init__(self,img,img2):
         #classe mae(sprite)
         pygame.sprite.Sprite.__init__(self)
-        self.afavor= img
-        self.contra = img2
+        self.contra= img
+        self.afavor = img2
         self.rect.x = random.choice(pixel_das_vias)
         if self.rect.x == 180 or self.rect.x == 275:
             self.image = self.contra
             self.rect = self.image.get_rect()
             self.rect.y = random.randint(-100, -50)
             self.speedx = 0
-            self.speedy = random.randint(8, 10)
+            self.speedy = random.randint(10, 20)
         else:
             self.image= self.afavor
             self.rect = self.image.get_rect()
             self.rect.y = random.randint(-100, -50)
             self.speedx = 0
-            self.speedy = random.randint(8, 10)
+            self.speedy = random.randint(5, 9)
 
 
     def update(self):
@@ -93,7 +93,11 @@ class Inimigo(pygame.sprite.Sprite):
             self.rect.x = random.choice(pixel_das_vias)
             if self.rect.x == 180 or self.rect.x == 275:
                 self.rect.y = random.randint(-100, -50)
-                self.speedy = random.randint(8, 10)
+                self.speedy = random.randint(10, 20)
+            else:
+                self.rect.y = random.randint(-100, -50)
+                self.speedx = 0
+                self.speedy = random.randint(5, 9) 
 
 class cenario(pygame.sprite.Sprite):
     def __init__(self, img, altura):
@@ -136,8 +140,9 @@ all_sprites.add(player)
 
 #criando inimigos
 for i in range(4):
-    cor = random.choice([azul,verde,vermelho])
-    carrinho = Inimigo(cor)
+    cor = random.choice([ini_azul,ini_verde,ini_vermelho])
+    cor2= random.choice([invrt_azul,invrt_verde,invrt_vermelho])
+    carrinho = Inimigo(cor,cor2)
     all_sprites.add(carrinho)
     all_ini.add(carrinho)
     
