@@ -28,7 +28,15 @@ ini_vermelho= pygame.image.load('assets/img/inimigo.vermelho.png')
 ini_vermelho= pygame.transform.scale(ini_vermelho,(50,100))
 ini_verde= pygame.image.load('assets/img/inimigo.verde.png')
 ini_verde= pygame.transform.scale(ini_verde,(50,100))
-
+invrt_azul= pygame.image.load('assets/img/invertido.azul.png')
+invrt_azul= pygame.transform.scale(invrt_azul(50,100))
+invrt_vermelho= pygame.image.load('assets/img/invertido.vermelho.png')
+invrt_vermelho= pygame.transform.scale(invrt_vermelho(50,100))
+invrt_verde= pygame.image.load('assets/img/invertido.verde.png')
+invrt_verde= pygame.transform.scale(invrt_verde(50,100))
+azul= [ini_azul,invrt_azul]
+vermelho= [ini_vermelho,invrt_vermelho]
+verde= [ini_verde, invrt_verde]
 
 #iniciando estrutura de dados
 #Definindo classes
@@ -128,7 +136,7 @@ all_sprites.add(player)
 
 #criando inimigos
 for i in range(4):
-    cor = random.choice([ini_verde,ini_azul,ini_vermelho])
+    cor = random.choice([azul,verde,vermelho])
     carrinho = Inimigo(cor)
     all_sprites.add(carrinho)
     all_ini.add(carrinho)
