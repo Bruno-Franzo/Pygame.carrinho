@@ -14,7 +14,7 @@ def load_assets():
     assets['jogador_esquerda_img']= pygame.image.load('assets/img/car.Esquerda.png')
     assets['pixel_das_vias']= [180, 275, 375, 470] #definido atraves de testes
     assets['ini_azul']= pygame.image.load('assets/img/inimigo.azul.png')
-    assets['ini_azul']= pygame.transform.scale(ini_azul,(50,100))
+    assets['ini_azul']= pygame.transform.scale(assets['ini_azul'],(50,100))
     assets['ini_vermelho']= pygame.image.load('assets/img/inimigo.vermelho.png')
     ini_vermelho= pygame.transform.scale(ini_vermelho,(50,100))
     ini_verde= pygame.image.load('assets/img/inimigo.verde.png')

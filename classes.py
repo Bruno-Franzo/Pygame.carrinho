@@ -3,7 +3,7 @@ import random
 import pygame
 from assets import *
 from config import *
-from OJOGO import R
+from OJOGO import R, pixel_das_vias
 
 class Jogador(pygame.sprite.Sprite):
     def __init__(self, img, esq, dire):
