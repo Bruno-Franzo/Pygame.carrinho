@@ -222,6 +222,7 @@ while game:
 #Som ambiente
 #som de batida
 #Sons de drift
+#mecanica de drift(dois botoes pressionados ao mesmo tempo)
 #tela inicial
 #contador de pontos
 #carro caveira(talvez)
