@@ -3,7 +3,8 @@ import random
 import pygame
 from assets import *
 from config import *
-from OJOGO import R, pixel_das_vias
+
+pixel_das_vias=[180, 275, 375, 470]
 
 class Jogador(pygame.sprite.Sprite):
     def __init__(self, img, esq, dire):
