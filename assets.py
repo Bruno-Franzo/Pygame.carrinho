@@ -30,5 +30,7 @@ def load_assets():
     assets['backdeserto']= pygame.transform.scale(assets['backdeserto'],(WIDTH,HEIGHT))
     assets['backdeserto2']= pygame.image.load('assets/img/deserto.png').convert_alpha()
     assets['backdeserto2']= pygame.transform.scale(assets['backdeserto'],(WIDTH,HEIGHT))
+    assets['gameover']=pygame.image.load('assets/img/Game over.png')
+    assets['gameover']=pygame.transform.scale(assets['gameover'],(WIDTH,HEIGHT))
 
     return assets
