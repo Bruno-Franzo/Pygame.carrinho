@@ -146,21 +146,6 @@ class cenario(pygame.sprite.Sprite):
             self.rect.bottom = 0
             
 
-def game_over(window):
-    window.fill((0,0,0))
-    window.blit(gameover,(0,0))
-
-    pygame.display.update()
-
-    jogando = True
-
-    while jogando:
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                return True
-            elif event.type == pygame.QUIT:
-                return  False       
-    
 
 # Variavel para o ajuste de framerate
 clock = pygame.time.Clock()
