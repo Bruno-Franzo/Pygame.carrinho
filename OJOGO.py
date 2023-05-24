@@ -263,7 +263,7 @@ while game:
         #toca o som
         #som pra por depois
         time.sleep(1)
-        game= game_over(window)
+        
 
     #Verifica colisao entre inimigos
 
