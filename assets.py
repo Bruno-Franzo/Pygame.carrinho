@@ -25,4 +25,10 @@ def load_assets():
     assets['invrt_vermelho']= pygame.transform.scale(assets['invrt_vermelho'],(50,100))
     assets['invrt_verde']= pygame.image.load('assets/img/invertido.verde.png')
     assets['invrt_verde']= pygame.transform.scale(assets['invrt_verde'],(50,100))
+    assets['score_font'] = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
+    assets['backdeserto']= pygame.image.load('assets/img/deserto.png').convert_alpha()
+    assets['backdeserto']= pygame.transform.scale(assets['backdeserto'],(WIDTH,HEIGHT))
+    assets['backdeserto2']= pygame.image.load('assets/img/deserto.png').convert_alpha()
+    assets['backdeserto2']= pygame.transform.scale(assets['backdeserto'],(WIDTH,HEIGHT))
 
+    return assets

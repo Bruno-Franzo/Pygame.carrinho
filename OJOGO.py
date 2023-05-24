@@ -4,6 +4,8 @@ import pygame
 import random
 import time
 
+print('o jogo')
+
 
 pygame.init()
 pygame.mixer.init()
