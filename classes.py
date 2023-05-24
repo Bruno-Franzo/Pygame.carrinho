@@ -9,6 +9,7 @@ class Jogador(pygame.sprite.Sprite):
     def __init__(self, img, esq, dire):
         # Classe mae(sprite)
         pygame.sprite.Sprite.__init__(self)
+        self.R= 0
         self.direita= dire
         self.esquerda = esq
         self.original= img
@@ -22,11 +23,11 @@ class Jogador(pygame.sprite.Sprite):
     def update(self):
         #atualiza posicao do jogador
         self.rect.x += self.speedx
-        if R == 1:
+        if self.R == 1:
             self.image= self.esquerda
-        if R == 2:
+        if self.R == 2:
             self.image = self.direita
-        if R == 3:
+        if self.R == 3:
             self.image= self.original
         
         # Mantem dentro da tela
