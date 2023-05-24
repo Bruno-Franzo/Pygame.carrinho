@@ -106,7 +106,7 @@ def game_screen(window):
 
         #desenhando level
         if score < 300:
-            level= score_font.render('Level 1', True, (255, 255, 0))
+            level= assets['scorefont'].render('Level 1', True, (255, 255, 0))
             level_rect = level.get_rect()
             level_rect.midtop = (WIDTH / 2,  40)
             window.blit(level, level_rect)
@@ -126,7 +126,7 @@ def game_screen(window):
             #toca o som
             #som pra por depois
             time.sleep(1)
-            game= False
+            STATE = EXPLODING
 
         #Verifica colisao entre inimigos
 
@@ -140,3 +140,4 @@ def game_screen(window):
     #tela inicial
     #contador de pontos
     #carro caveira(talvez)
+    return STATE
