@@ -23,7 +23,7 @@ while state != QUIT:
         print('menu game')
         state = game_screen(window)
     else:
-        state = game_over(window)
+        state = QUIT
 
 
 
