@@ -40,6 +40,8 @@ backdeserto= pygame.image.load('assets/img/deserto.png').convert_alpha()
 backdeserto= pygame.transform.scale(background,(WIDTH,HEIGHT))
 backdeserto2= pygame.image.load('assets/img/deserto.png').convert_alpha()
 backdeserto2= pygame.transform.scale(background,(WIDTH,HEIGHT))
+gameover=pygame.image.load('assets/img/Game over.png')
+gameover=pygame.transform.scale(gameover,(WIDTH,HEIGHT))
 
 
 
@@ -142,7 +144,21 @@ class cenario(pygame.sprite.Sprite):
             self.rect.bottom = 0
             
 
+def game_over(window):
+    window.fill((0,0,0))
+    window.blit(gameover,(0,0))
 
+    pygame.display.update()
+
+    jogando = True
+
+    while jogando:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                return True
+            elif event.type == pygame.QUIT:
+                return  False       
+    
 
 # Variavel para o ajuste de framerate
 clock = pygame.time.Clock()
@@ -256,10 +272,11 @@ while game:
     #Verifica colisao entre jogador e inimigo
     hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
     if len(hits) > 0 :
+        score=0
         #toca o som
         #som pra por depois
         time.sleep(1)
-        game= False
+        game= game_over(window)
 
     #Verifica colisao entre inimigos
 
