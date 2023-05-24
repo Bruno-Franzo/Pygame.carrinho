@@ -5,7 +5,7 @@ from config import *
 #imagens
 def load_assets():
     assets = {}
-    assets['background']= pygame.image.load('assets/img/Rua.png')
+    assets['background']= pygame.image.load('assets/img/Rua.png').convert_alpha()
     assets['background']= pygame.transform.scale(assets['background'],(WIDTH,HEIGHT))
     assets['background2']= pygame.image.load('assets/img/Rua.png')
     assets['background2']= pygame.transform.scale(assets['background2'],(WIDTH,HEIGHT))
@@ -32,5 +32,7 @@ def load_assets():
     assets['backdeserto2']= pygame.transform.scale(assets['backdeserto'],(WIDTH,HEIGHT))
     assets['gameover']=pygame.image.load('assets/img/Game over.png')
     assets['gameover']=pygame.transform.scale(assets['gameover'],(WIDTH,HEIGHT))
+    assets['inicio'] = pygame.image.load('assets/img/inicio.png').convert_alpha()
+    assets['inicio'] = pygame.transform.scale(assets['background'],(WIDTH,HEIGHT))
 
     return assets
