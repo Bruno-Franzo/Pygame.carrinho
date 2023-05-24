@@ -183,6 +183,16 @@ while game:
             if event.key == pygame.K_RIGHT:
                 R=2
                 player.speedx += 8 
+            if event.key == pygame.K_UP:
+                background.speedy+=2.5
+                background2.speedy+=2.5
+                carrinho.speedy+=2.5
+            if event.key == pygame.K_DOWN:
+                background.speedy-=2.5
+                background2.speedy-=2.5
+                carrinho.speedy-=2.5
+
+
         #verifica se soltou teclas
         if event.type == pygame.KEYUP:
             R = 3
@@ -191,7 +201,14 @@ while game:
                 player.speedx += 8
             if event.key == pygame.K_RIGHT:
                 player.speedx -= 8
-
+            if event.key == pygame.K_DOWN:
+                background.speedy+=2.5
+                background2.speedy+=2.5
+                carrinho.speedy+=2.5
+            if event.key == pygame.K_UP:
+                background.speedy-=2.5
+                background2.speedy-=2.5
+                carrinho.speedy-=2.5
     #atualizando estado do jogo#
     #atualiza todos os sprites
     all_sprites.update()
