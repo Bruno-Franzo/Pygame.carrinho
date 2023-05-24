@@ -35,6 +35,12 @@ invrt_vermelho= pygame.image.load('assets/img/invertido.vermelho.png')
 invrt_vermelho= pygame.transform.scale(invrt_vermelho,(50,100))
 invrt_verde= pygame.image.load('assets/img/invertido.verde.png')
 invrt_verde= pygame.transform.scale(invrt_verde,(50,100))
+score_font = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
+backdeserto= pygame.image.load('assets/img/deserto.png').convert_alpha()
+backdeserto= pygame.transform.scale(background,(WIDTH,HEIGHT))
+backdeserto2= pygame.image.load('assets/img/deserto.png').convert_alpha()
+backdeserto2= pygame.transform.scale(background,(WIDTH,HEIGHT))
+
 
 
 #iniciando estrutura de dados
@@ -164,11 +170,17 @@ for i in range(4):
     all_ini.add(carrinho)
     
 
+
+#configs iniciais
+score = 0
+
+
 #loop principal do jogo
 game = True
 while game:
     clock.tick(Fps)
     R=0
+    score += 2
     #    olha os eventos
     for event in pygame.event.get():
         #olha as consequencias
@@ -183,14 +195,14 @@ while game:
             if event.key == pygame.K_RIGHT:
                 R=2
                 player.speedx += 8 
-            if event.key == pygame.K_UP:
-                background.speedy+=2.5
-                background2.speedy+=2.5
-                carrinho.speedy+=2.5
-            if event.key == pygame.K_DOWN:
-                background.speedy-=2.5
-                background2.speedy-=2.5
-                carrinho.speedy-=2.5
+            # if event.key == pygame.K_UP:
+            #     background.speedy+=2.5
+            #     background2.speedy+=2.5
+            #     carrinho.speedy+=2.5
+            # if event.key == pygame.K_DOWN:
+            #     background.speedy-=2.5
+            #     background2.speedy-=2.5
+            #     carrinho.speedy-=2.5
 
 
         #verifica se soltou teclas
@@ -201,14 +213,14 @@ while game:
                 player.speedx += 8
             if event.key == pygame.K_RIGHT:
                 player.speedx -= 8
-            if event.key == pygame.K_DOWN:
-                background.speedy+=2.5
-                background2.speedy+=2.5
-                carrinho.speedy+=2.5
-            if event.key == pygame.K_UP:
-                background.speedy-=2.5
-                background2.speedy-=2.5
-                carrinho.speedy-=2.5
+            # if event.key == pygame.K_DOWN:
+            #     background.speedy+=2.5
+            #     background2.speedy+=2.5
+            #     carrinho.speedy+=2.5
+            # if event.key == pygame.K_UP:
+            #     background.speedy-=2.5
+            #     background2.speedy-=2.5
+            #     carrinho.speedy-=2.5
     #atualizando estado do jogo#
     #atualiza todos os sprites
     all_sprites.update()
@@ -217,7 +229,25 @@ while game:
     window.fill((255, 255, 255))  # Preenche com a cor branca
     #window.blit(background, (0, 0))
     #desenhando sprites
-    all_sprites.draw(window)    
+    all_sprites.draw(window)  
+
+    #desenhando score
+    text_surface= score_font.render("{:08d}".format(score), True, (255, 255, 0))
+    text_rect = text_surface.get_rect()
+    text_rect.midtop = (WIDTH / 2,  10)
+    window.blit(text_surface, text_rect)
+
+    #desenhando level
+    if score < 300:
+        level= score_font.render('Level 1', True, (255, 255, 0))
+        level_rect = level.get_rect()
+        level_rect.midtop = (WIDTH / 2,  40)
+        window.blit(level, level_rect)
+
+
+
+
+
 
 
     #atualiza o estado do jogo
