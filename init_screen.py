@@ -29,7 +29,7 @@ def init_screen(screen):
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites
-        screen.fill(0,0,0)
+        screen.fill((0, 0, 0))
         screen.blit(background, background_rect)
 
         # Depois de desenhar tudo, inverte o display.

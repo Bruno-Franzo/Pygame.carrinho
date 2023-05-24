@@ -17,18 +17,18 @@ def game_screen(window):
     all_ini = pygame.sprite.Group()
 
     #criando background
-    background = cenario(background,0)
-    background2 = cenario(background2,-HEIGHT)
+    background = cenario(assets['background'],0)
+    background2 = cenario(assets['background2'],-HEIGHT)
     all_sprites.add(background)
     all_sprites.add(background2)
     # Criando o jogador
-    player= Jogador(assets)
+    player= Jogador(assets['jogador_img'],assets['jogador_esquerda_img'],assets['jogador_direita_img'])
     all_sprites.add(player)
 
     #criando inimigos
     for i in range(4):
-        cor = random.choice(assets)
-        cor2 = random.choice(assets)
+        cor = random.choice([assets['ini_azul'],assets['ini_vermelho'],assets['ini_verde']])
+        cor2 = random.choice([assets['invrt_azul'],assets['invrt_verde'],assets['invrt_vermelho']])
         carrinho = Inimigo(cor,cor2)
         all_sprites.add(carrinho)
         all_ini.add(carrinho)
@@ -57,10 +57,10 @@ def game_screen(window):
             if event.type == pygame.KEYDOWN:
                 # Altera a velocidade
                 if event.key == pygame.K_LEFT:
-                    player.R =1
+                    player.R = 1
                     player.speedx -= 8
                 if event.key == pygame.K_RIGHT:
-                    player.R=2
+                    player.R = 2
                     player.speedx += 8 
                 # if event.key == pygame.K_UP:
                 #     background.speedy+=2.5
