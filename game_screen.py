@@ -46,7 +46,7 @@ def game_screen(window):
     #loop principal do jogo
     while state != DONE:
         clock.tick(Fps)
-        R=0
+        R=3
         score += 2
         #    olha os eventos
         for event in pygame.event.get():
@@ -106,7 +106,7 @@ def game_screen(window):
 
         #desenhando level
         if score < 300:
-            level= assets['scorefont'].render('Level 1', True, (255, 255, 0))
+            level= assets['score_font'].render('Level 1', True, (255, 255, 0))
             level_rect = level.get_rect()
             level_rect.midtop = (WIDTH / 2,  40)
             window.blit(level, level_rect)
