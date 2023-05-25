@@ -46,8 +46,8 @@ def game_screen(window):
     #loop principal do jogo
     while state != DONE:
         clock.tick(Fps)
-        player.R=3
         score += 2
+        player.R=0
         #    olha os eventos
         for event in pygame.event.get():
             #olha as consequencias
@@ -74,7 +74,7 @@ def game_screen(window):
 
             #verifica se soltou teclas
             if event.type == pygame.KEYUP:
-                R = 3
+                player.R = 3
                 #altera a velocidade
                 if event.key == pygame.K_LEFT:
                     player.speedx += 8
@@ -128,16 +128,4 @@ def game_screen(window):
             time.sleep(1)
             STATE = DONE
 
-        #Verifica colisao entre inimigos
-
-    #anotacoes pra proxima
-    #fase deserto
-    #fase inferno
-    #Som ambiente
-    #som de batida
-    #Sons de drift
-    #mecanica de drift(dois botoes pressionados ao mesmo tempo)
-    #tela inicial
-    #contador de pontos
-    #carro caveira(talvez)
     return STATE

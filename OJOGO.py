@@ -263,6 +263,7 @@ while game:
         #toca o som
         #som pra por depois
         time.sleep(1)
+        game = False
         
 
     #Verifica colisao entre inimigos
