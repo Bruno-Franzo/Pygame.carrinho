@@ -258,12 +258,31 @@ while game:
 
     #Verifica colisao entre jogador e inimigo
     hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
-    if len(hits) > 0 :
-        score=0
-        #toca o som
-        #som pra por depois
-        time.sleep(1)
-        game = False
+    # if len(hits) > 0 :
+        # score = 0
+        # # Exibe a imagem "Game Over"
+        # window.blit(gameover, (0, 0))
+        # pygame.display.update()
+
+        # Aguarda o jogador pressionar qualquer botão
+        # jogando=True
+        # while jogando:
+        #     for event in pygame.event.get():
+        #         if event.type == pygame.KEYDOWN:
+        #             # Reinicia o jogo
+        #             game = True
+        #             player.rect.centerx = (WIDTH / 3.5) + 100 * 2
+        #             player.rect.bottom = HEIGHT - 150
+        #             all_ini.empty()
+        #             for i in range(4):
+        #                 cor = random.choice([ini_azul, ini_verde, ini_vermelho])
+        #                 cor2 = random.choice([invrt_azul, invrt_verde, invrt_vermelho])
+        #                 carrinho = Inimigo(cor, cor2)
+        #                 all_sprites.add(carrinho)
+        #                 all_ini.add(carrinho)
+        #             window.fill((255, 255, 255))
+        #             pygame.display.update()
+        #             jogando=False
         
 
     #Verifica colisao entre inimigos
