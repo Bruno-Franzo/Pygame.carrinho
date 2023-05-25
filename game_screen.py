@@ -46,7 +46,7 @@ def game_screen(window):
     #loop principal do jogo
     while state != DONE:
         clock.tick(Fps)
-        R=3
+        player.R=3
         score += 2
         #    olha os eventos
         for event in pygame.event.get():
@@ -126,7 +126,7 @@ def game_screen(window):
             #toca o som
             #som pra por depois
             time.sleep(1)
-            STATE = EXPLODING
+            STATE = DONE
 
         #Verifica colisao entre inimigos
 
