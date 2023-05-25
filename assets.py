@@ -33,6 +33,6 @@ def load_assets():
     assets['gameover']=pygame.image.load('assets/img/Game over.png')
     assets['gameover']=pygame.transform.scale(assets['gameover'],(WIDTH,HEIGHT))
     assets['inicio'] = pygame.image.load('assets/img/inicio.png').convert_alpha()
-    assets['inicio'] = pygame.transform.scale(assets['background'],(WIDTH,HEIGHT))
+    assets['inicio'] = pygame.transform.scale(assets['inicio'],(WIDTH,HEIGHT))
 
     return assets

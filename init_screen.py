@@ -4,7 +4,7 @@ from config import Fps, GAME,QUIT
 from assets import load_assets  
 
 
-def init_screen(screen):
+def init_screen(window):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -12,7 +12,11 @@ def init_screen(screen):
 
     # Carrega o fundo da tela inicial
     background = assets['inicio']
-    background_rect = background.get_rect()
+    
+    window.fill((0, 0, 0))
+    window.blit(background, (0,0))
+
+    pygame.display.update()
 
     running = True
     while running:
@@ -33,8 +37,7 @@ def init_screen(screen):
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites
-        screen.fill((0, 0, 0))
-        screen.blit(background, background_rect)
+
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
