@@ -26,7 +26,8 @@ def game_screen(window):
     all_sprites.add(player)
 
     buzina=assets['buzina']
-
+    som_motor=assets['som_motor']
+    batida=assets['batida']
     #criando inimigos
     for i in range(4):
         cor = random.choice([assets['ini_azul'],assets['ini_vermelho'],assets['ini_verde']])
@@ -45,7 +46,7 @@ def game_screen(window):
     state = PLAYING
     score = 0
 
-
+    pygame.mixer.music.play()
     #loop principal do jogo
     while state != DONE:
 
@@ -129,7 +130,8 @@ def game_screen(window):
         #Verifica colisao entre jogador e inimigo
         hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
         if len(hits) > 0 :
-            #pygame.mixer.music.pause()
+            pygame.mixer.music.stop()
+            pygame.mixer.Sound.play(batida)
             #pygame.mixer.Sound.play(assets['batida'])
             time.sleep(1)
             lvl= OVER
