@@ -50,7 +50,7 @@ batida=pygame.mixer.Sound('assets/audios/batida.wav')
 buzina=pygame.mixer.Sound('assets/audios/Buzina.wav')
 som_motor=pygame.mixer.music.load('assets/audios/Audio carro.wav')
 som_motor=pygame.mixer.music.set_volume(7)
-pygame.mixer.music.play()
+som_motor=pygame.mixer.music.play()
 
 
 #iniciando estrutura de dados
@@ -266,6 +266,7 @@ while game:
     hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
     if len(hits) > 0 :
         pygame.mixer.music.pause()
+        pygame.mixer.Sound.play(batida)
         score = 0
         carrinho
         # # Exibe a imagem "Game Over"
