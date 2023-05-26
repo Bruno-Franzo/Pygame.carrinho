@@ -240,7 +240,7 @@ while game:
     window.fill((255, 255, 255))  # Preenche com a cor branca
     #window.blit(background, (0, 0))
     #desenhando sprites
-    all_sprites.draw(window)  
+    all_sprites.draw(window)
 
     #desenhando score
     text_surface= score_font.render("{:08d}".format(score), True, (255, 255, 0))
@@ -270,7 +270,6 @@ while game:
         pygame.mixer.music.pause()
         pygame.mixer.Sound.play(batida)
         score = 0
-        carrinho
         # # Exibe a imagem "Game Over"
         window.blit(gameover, (0, 0))
         pygame.display.update()
