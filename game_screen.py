@@ -34,7 +34,7 @@ def game_screen(window):
         all_ini.add(carrinho)
         
     #cirando sons
-    som_carro=assets['som_motor']
+    #som_carro=assets['som_motor']
 
     #configs iniciais
     DONE= 0
@@ -125,8 +125,8 @@ def game_screen(window):
         #Verifica colisao entre jogador e inimigo
         hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
         if len(hits) > 0 :
-            pygame.mixer.music.pause()
-            pygame.mixer.Sound.play(assets['batida'])
+            #pygame.mixer.music.pause()
+            #pygame.mixer.Sound.play(assets['batida'])
             time.sleep(1)
             lvl= OVER
             return lvl
