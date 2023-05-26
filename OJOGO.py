@@ -204,6 +204,8 @@ while game:
             if event.key == pygame.K_RIGHT:
                 R=2
                 player.speedx += 8 
+            if event.key == pygame.K_SPACE:
+                pygame.mixer.Sound.play(buzina)
             # if event.key == pygame.K_UP:
             #     background.speedy+=2.5
             #     background2.speedy+=2.5
