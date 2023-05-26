@@ -11,7 +11,6 @@ def game_screen(window):
 
     assets= load_assets()
 
-    pygame.mixer.music.play(assets['som_motor'])
 
     #criando um grupo de sprites
     all_sprites = pygame.sprite.Group()
@@ -34,7 +33,8 @@ def game_screen(window):
         all_sprites.add(carrinho)
         all_ini.add(carrinho)
         
-
+    #cirando sons
+    som_carro=assets['som_motor']
 
     #configs iniciais
     DONE= 0
@@ -46,6 +46,7 @@ def game_screen(window):
 
     #loop principal do jogo
     while state != DONE:
+
         clock.tick(Fps)
         score += 2
         player.R=0

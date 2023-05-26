@@ -9,7 +9,7 @@ pygame.mixer.init()
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Highway to hell')
+pygame.display.set_caption('Highway Rush')
 
 lvl = INIT
 while lvl != QUIT:
