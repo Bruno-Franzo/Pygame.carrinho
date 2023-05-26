@@ -45,6 +45,12 @@ backdeserto2= pygame.transform.scale(background,(WIDTH,HEIGHT))
 gameover=pygame.image.load('assets/img/Game over.png')
 gameover=pygame.transform.scale(gameover,(WIDTH,HEIGHT))
 
+#inicia sons
+batida=pygame.mixer.Sound('assets/audios/batida.wav')
+buzina=pygame.mixer.Sound('assets/audios/Buzina.wav')
+som_motor=pygame.mixer.music.load('assets/audios/Audio carro.wav')
+som_motor=pygame.mixer.music.set_volume(7)
+pygame.mixer.music.play()
 
 
 #iniciando estrutura de dados
@@ -258,31 +264,36 @@ while game:
 
     #Verifica colisao entre jogador e inimigo
     hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
-    # if len(hits) > 0 :
-        # score = 0
+    if len(hits) > 0 :
+        pygame.mixer.music.pause()
+        score = 0
+        carrinho
         # # Exibe a imagem "Game Over"
-        # window.blit(gameover, (0, 0))
-        # pygame.display.update()
+        window.blit(gameover, (0, 0))
+        pygame.display.update()
 
         # Aguarda o jogador pressionar qualquer botão
-        # jogando=True
-        # while jogando:
-        #     for event in pygame.event.get():
-        #         if event.type == pygame.KEYDOWN:
-        #             # Reinicia o jogo
-        #             game = True
-        #             player.rect.centerx = (WIDTH / 3.5) + 100 * 2
-        #             player.rect.bottom = HEIGHT - 150
-        #             all_ini.empty()
-        #             for i in range(4):
-        #                 cor = random.choice([ini_azul, ini_verde, ini_vermelho])
-        #                 cor2 = random.choice([invrt_azul, invrt_verde, invrt_vermelho])
-        #                 carrinho = Inimigo(cor, cor2)
-        #                 all_sprites.add(carrinho)
-        #                 all_ini.add(carrinho)
-        #             window.fill((255, 255, 255))
-        #             pygame.display.update()
-        #             jogando=False
+        jogando=True
+        while jogando:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    game = False
+                    jogando=False
+                if event.type == pygame.KEYDOWN:
+                    # Reinicia o jogo
+                    pygame.mixer.music.unpause()
+                    player.rect.centerx = (WIDTH / 3.5) + 100 * 2
+                    player.rect.bottom = HEIGHT - 150
+                    all_ini.empty()
+                    for i in range(4):
+                        cor = random.choice([ini_azul, ini_verde, ini_vermelho])
+                        cor2 = random.choice([invrt_azul, invrt_verde, invrt_vermelho])
+                        carrinho = Inimigo(cor, cor2)
+                        all_sprites.add(carrinho)
+                        all_ini.add(carrinho)
+                    window.fill((255, 255, 255))
+                    pygame.display.update()
+                    jogando=False
         
 
     #Verifica colisao entre inimigos
