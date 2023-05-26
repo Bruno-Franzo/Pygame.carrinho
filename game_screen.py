@@ -25,6 +25,8 @@ def game_screen(window):
     player= Jogador(assets['jogador_img'],assets['jogador_esquerda_img'],assets['jogador_direita_img'])
     all_sprites.add(player)
 
+    buzina=assets['buzina']
+
     #criando inimigos
     for i in range(4):
         cor = random.choice([assets['ini_azul'],assets['ini_vermelho'],assets['ini_verde']])
@@ -64,6 +66,8 @@ def game_screen(window):
                 if event.key == pygame.K_RIGHT:
                     player.R = 2
                     player.speedx += 8 
+                if event.key == pygame.K_SPACE:
+                    pygame.mixer.Sound.play(buzina)
                 # if event.key == pygame.K_UP:
                 #     background.speedy+=2.5
                 #     background2.speedy+=2.5
