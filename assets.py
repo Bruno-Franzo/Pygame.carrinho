@@ -35,11 +35,11 @@ def load_assets():
     assets['inicio'] = pygame.image.load('assets/img/inicio.png').convert_alpha()
     assets['inicio'] = pygame.transform.scale(assets['inicio'],(WIDTH,HEIGHT))
 
-    #inicia sons
-    batida=pygame.mixer.Sound('assets/audios/batida.wav')
-    buzina=pygame.mixer.Sound('assets/audios/Buzina.wav')
-    som_motor=pygame.mixer.music.load('assets/audios/Audio carro.wav')
-    som_motor=pygame.mixer.music.set_volume(7)
-    som_motor=pygame.mixer.music.play()
+    #sons
+    assets['batida']=pygame.mixer.Sound('assets/audios/batida.wav')
+    assets['buzina']=pygame.mixer.Sound('assets/audios/Buzina.wav')
+    assets['som_motor']=pygame.mixer.music.load('assets/audios/Audio carro.wav')
+    assets['som_motor']=pygame.mixer.music.set_volume(7)
+    assets['som_motor']=pygame.mixer.music.play()
 
     return assets
