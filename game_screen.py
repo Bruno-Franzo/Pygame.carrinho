@@ -5,14 +5,13 @@ from config import *
 from assets import load_assets  
 from classes import Jogador,Inimigo,cenario
 
-
 def game_screen(window):
     # Variavel para o ajuste de framerate
     clock = pygame.time.Clock()
 
     assets= load_assets()
 
-    pygame.mixer.music.play()
+    pygame.mixer.music.play(assets['som_motor'])
 
     #criando um grupo de sprites
     all_sprites = pygame.sprite.Group()
