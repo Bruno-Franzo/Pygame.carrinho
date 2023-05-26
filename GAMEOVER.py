@@ -16,7 +16,8 @@ def game_over(window):
                 jogando=False
                 lvl=QUIT
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
                 # Reinicia o jogo
-                jogando=False
-                lvl=GAME
+                    jogando=False
+                    lvl=GAME
     return lvl

@@ -32,7 +32,7 @@ def init_screen(window):
                 lvl = QUIT    
                 running = False
 
-            if event.type == pygame.KEYUP:
+            if event.type == pygame.KEYDOWN:
                 lvl = GAME
                 running = False
 
