@@ -1,7 +1,7 @@
 import pygame
 import time
 import random
-from config import Fps,HEIGHT,WIDTH
+from config import *
 from assets import load_assets  
 from classes import Jogador,Inimigo,cenario
 
@@ -11,6 +11,8 @@ def game_screen(window):
     clock = pygame.time.Clock()
 
     assets= load_assets()
+
+    pygame.mixer.music.play()
 
     #criando um grupo de sprites
     all_sprites = pygame.sprite.Group()
@@ -123,9 +125,9 @@ def game_screen(window):
         #Verifica colisao entre jogador e inimigo
         hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
         if len(hits) > 0 :
-            #toca o som
-            #som pra por depois
+            pygame.mixer.music.pause()
+            pygame.mixer.Sound.play(assets['batida'])
             time.sleep(1)
-            STATE = DONE
-
-    return STATE
+            lvl= OVER
+            return lvl
+    

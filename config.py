@@ -6,4 +6,5 @@ Fps= 60
 # Estados para controle do fluxo da aplicação
 INIT = 0
 GAME = 1
-QUIT = 2
+OVER = 2
+QUIT = 3

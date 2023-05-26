@@ -1,6 +1,6 @@
 import pygame
 import random
-from config import Fps, GAME,QUIT
+from config import *
 from assets import load_assets  
 
 
@@ -29,11 +29,11 @@ def init_screen(window):
         for event in pygame.event.get():
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
-                state = QUIT    
+                lvl = QUIT    
                 running = False
 
             if event.type == pygame.KEYUP:
-                state = GAME
+                lvl = GAME
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites
@@ -43,4 +43,4 @@ def init_screen(window):
         pygame.display.flip()
         pygame.display.update()
 
-    return state
+    return lvl
