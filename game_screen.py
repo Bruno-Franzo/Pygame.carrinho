@@ -4,9 +4,11 @@ import random
 from config import *
 from assets import load_assets  
 from classes import Jogador,Inimigo,cenario
+from recorde import salvar_recordes
+from recorde import carregar_recordes
 
 def game_screen(window):
-    # Variavel para o ajuste de framerate
+
     clock = pygame.time.Clock()
 
     assets= load_assets()
