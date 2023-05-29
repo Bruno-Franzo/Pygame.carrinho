@@ -4,8 +4,6 @@ import random
 from config import *
 from assets import load_assets  
 from classes import Jogador,Inimigo,cenario
-from recorde import salvar_recordes
-from recorde import carregar_recordes
 
 def game_screen(window):
 
@@ -28,7 +26,7 @@ def game_screen(window):
     all_sprites.add(player)
 
     buzina=assets['buzina']
-    som_fundo= assets['som_motor']
+    som_motor=assets['som_motor']
     batida=assets['batida']
     #criando inimigos
     for i in range(4):
@@ -48,8 +46,7 @@ def game_screen(window):
     state = PLAYING
     score = 0
 
-    pygame.mixer.music.play(loops=-1)
-
+    pygame.mixer.music.play()
     #loop principal do jogo
     while state != DONE:
 
@@ -61,9 +58,6 @@ def game_screen(window):
             #olha as consequencias
             if event.type == pygame.QUIT:
                 state = DONE
-                lvl = QUIT
-                return lvl
-            
             #verifica se apertou teclas
             if event.type == pygame.KEYDOWN:
                 # Altera a velocidade
@@ -142,5 +136,4 @@ def game_screen(window):
             time.sleep(1)
             lvl= OVER
             return lvl
-        
     
