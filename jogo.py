@@ -3,6 +3,7 @@ from config import *
 from init_screen import init_screen
 from GAMEOVER import game_over
 from game_screen import game_screen
+from tutorial import tutorial_screen
 
 pygame.init()
 pygame.mixer.init()
@@ -15,6 +16,8 @@ lvl = INIT
 while lvl != QUIT:
     if lvl == INIT:
         lvl = init_screen(window)
+    if lvl == TUTO:
+        lvl = tutorial_screen(window) 
     if lvl == GAME:
         lvl = game_screen(window)
     if lvl == OVER:
