@@ -58,6 +58,8 @@ def game_screen(window):
             #olha as consequencias
             if event.type == pygame.QUIT:
                 state = DONE
+                lvl=QUIT
+                return lvl
             #verifica se apertou teclas
             if event.type == pygame.KEYDOWN:
                 # Altera a velocidade
