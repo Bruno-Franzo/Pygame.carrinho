@@ -35,6 +35,9 @@ def init_screen(window):
                 if event.key == pygame.K_e:
                     lvl = GAME
                     running = False
+                if event.key == pygame.K_t:
+                    lvl = TUTO
+                    running = False
 
         # A cada loop, redesenha o fundo e os sprites
 
