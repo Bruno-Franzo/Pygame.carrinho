@@ -46,7 +46,7 @@ def game_screen(window):
     state = PLAYING
     score = 0
 
-    pygame.mixer.music.play()
+    pygame.mixer.music.play(loops=-1)
     #loop principal do jogo
     while state != DONE:
 
