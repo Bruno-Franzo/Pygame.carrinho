@@ -132,6 +132,7 @@ def game_screen(window):
         #Verifica colisao entre jogador e inimigo
         hits= pygame.sprite.spritecollide(player, all_ini, True, pygame.sprite.collide_mask)
         if len(hits) > 0 :
+            print(score)
             pygame.mixer.music.stop()
             pygame.mixer.Sound.play(batida)
             #pygame.mixer.Sound.play(assets['batida'])
